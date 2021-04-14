@@ -4,11 +4,15 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './ui/header/header.component';
+import { SignupFormComponent } from './signup-form/signup-form.component';
+import { InputComponent } from './ui/input/input.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent
+    HeaderComponent,
+    SignupFormComponent,
+    InputComponent
   ],
   imports: [
     BrowserModule,
