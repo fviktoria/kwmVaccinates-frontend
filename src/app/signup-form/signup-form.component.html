@@ -12,9 +12,9 @@
           <label for="exampleInputEmail1" class="form-label">Appointment</label>
           <select class="form-select" aria-label="Default select example">
             <option selected>Select appointment</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
+            <option *ngFor="let vaccination of vaccinations" [value]="vaccination.id">
+              {{ vaccination.date }}, {{ vaccination.from }} - {{ vaccination.to }}
+            </option>
           </select>
         </div>
       </div>
