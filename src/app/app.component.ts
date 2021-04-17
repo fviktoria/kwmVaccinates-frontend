@@ -2,8 +2,7 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  template: '<app-location-list></app-location-list>',
 })
 export class AppComponent {
   title = 'kwmVaccinates-frontend';

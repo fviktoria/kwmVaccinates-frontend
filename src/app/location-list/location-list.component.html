@@ -1,1 +1,12 @@
-<p>location-list works!</p>
+<app-header></app-header>
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-12 mb-3">
+      <h2>Where do you wanna get your shot?</h2>
+    </div>
+  </div>
+  <div class="row">
+    <div *ngFor="let location of locations" class="col-md-4 app-location-list-item" [location]="location"></div>
+  </div>
+</div>
+<router-outlet></router-outlet>

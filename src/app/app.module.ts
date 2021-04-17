@@ -7,6 +7,7 @@ import { HeaderComponent } from './ui/header/header.component';
 import { SignupFormComponent } from './signup-form/signup-form.component';
 import { InputComponent } from './ui/input/input.component';
 import { LocationListComponent } from './location-list/location-list.component';
+import { LocationListItemComponent } from './location-list-item/location-list-item.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { LocationListComponent } from './location-list/location-list.component';
     HeaderComponent,
     SignupFormComponent,
     InputComponent,
-    LocationListComponent
+    LocationListComponent,
+    LocationListItemComponent
   ],
   imports: [
     BrowserModule,
