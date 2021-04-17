@@ -12,6 +12,10 @@ import { LocationService } from './shared/location.service';
 import { HomeComponent } from './home/home.component';
 
 import { HttpClientModule } from '@angular/common/http';
+import { AdminComponent } from './admin/admin.component';
+import { VaccinationAdminComponent } from './vaccination-admin/vaccination-admin.component';
+import { LocationListAdminComponent } from './location-list-admin/location-list-admin.component';
+import { VaccinationListAdminComponent } from './vaccination-list-admin/vaccination-list-admin.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +26,10 @@ import { HttpClientModule } from '@angular/common/http';
     LocationListComponent,
     LocationListItemComponent,
     HomeComponent,
+    AdminComponent,
+    VaccinationAdminComponent,
+    LocationListAdminComponent,
+    VaccinationListAdminComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [LocationService],
