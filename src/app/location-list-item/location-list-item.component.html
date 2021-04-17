@@ -6,6 +6,6 @@
       {{ location.zipCode }} {{ location.city }}
     </p>
 
-    <button class="btn btn-primary">Vaccinate me!</button>
+    <a class="btn btn-primary" [routerLink]="['../signup', location.id]">Vaccinate me!</a>
   </div>
 </div>
