@@ -8,9 +8,10 @@ import { SignupFormComponent } from './signup-form/signup-form.component';
 import { InputComponent } from './ui/input/input.component';
 import { LocationListComponent } from './location-list/location-list.component';
 import { LocationListItemComponent } from './location-list-item/location-list-item.component';
-import { VaccinationService } from './shared/vaccination.service';
 import { LocationService } from './shared/location.service';
 import { HomeComponent } from './home/home.component';
+
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,7 @@ import { HomeComponent } from './home/home.component';
     LocationListItemComponent,
     HomeComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [LocationService],
   bootstrap: [AppComponent],
 })

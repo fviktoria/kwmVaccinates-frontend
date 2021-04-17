@@ -12,6 +12,6 @@ export class LocationListComponent implements OnInit {
   locations: Location[];
 
   ngOnInit(): void {
-    this.locations = this.ls.getAll();
+    this.ls.getAll().subscribe((res) => (this.locations = res));
   }
 }
