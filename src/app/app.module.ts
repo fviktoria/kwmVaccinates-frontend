@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './ui/header/header.component';
 import { SignupFormComponent } from './signup-form/signup-form.component';
 import { InputComponent } from './ui/input/input.component';
+import { LocationListComponent } from './location-list/location-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     SignupFormComponent,
-    InputComponent
+    InputComponent,
+    LocationListComponent
   ],
   imports: [
     BrowserModule,
