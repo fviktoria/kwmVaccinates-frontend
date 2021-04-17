@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LocationService } from '../shared/location.service';
 import Location from '../shared/location';
 
 @Component({
@@ -7,11 +8,10 @@ import Location from '../shared/location';
   styleUrls: ['./location-list.component.css'],
 })
 export class LocationListComponent implements OnInit {
+  constructor(private ls: LocationService) {}
   locations: Location[];
 
-  constructor() {}
-
   ngOnInit(): void {
-    this.locations = [new Location(1, 'Marien Apotheke', 'Schmalzhofgasse', '1', '1060', 'Wien')];
+    this.locations = this.ls.getAll();
   }
 }
