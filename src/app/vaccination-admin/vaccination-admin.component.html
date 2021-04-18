@@ -30,15 +30,16 @@
         </div>
       </div>
 
+      <input type="hidden" formControlName="location_id" />
       <!--<div class="row mb-5">
         <div class="col">
           <label for="location" class="form-label">Location</label>
-          <select class="form-select" aria-label="Select location" id="location">
+          <select class="form-select" aria-label="Select location" id="location" formControlName="location_id">
             <option selected>Select location</option>
             <option
               *ngFor="let location of locations"
               [value]="location.id"
-              [selected]="vaccination.location && vaccination.location.id == location.id"
+              [selected]="vaccination.location_id && vaccination.location_id == location.id"
             >
               {{ location.name }}
             </option>

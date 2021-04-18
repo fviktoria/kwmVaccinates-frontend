@@ -45,13 +45,15 @@ export class VaccinationAdminComponent implements OnInit {
 
   initVaccination() {
     console.log(this.vaccination);
+    const locationId = this.route.snapshot.params['locationId'];
     this.vaccinationAdminForm = this.fb.group({
       id: this.vaccination.id,
       date: [this.vaccination.date, Validators.required],
       from: [this.vaccination.from, Validators.required],
       to: [this.vaccination.to, Validators.required],
       maxPatients: [this.vaccination.maxPatients, Validators.required],
-      location: [this.vaccination.location ? this.vaccination.location : null, Validators.required],
+      location: this.vaccination.location,
+      location_id: this.vaccination.location ? this.vaccination.location.id : locationId,
     });
     this.vaccinationAdminForm.statusChanges.subscribe(() => this.updateErrorMessages());
   }
@@ -84,12 +86,13 @@ export class VaccinationAdminComponent implements OnInit {
         });
       });
     } else {
-      /*
-      this.bs.create(book).subscribe((res) => {
-        this.book = BookFactory.empty();
-        this.bookForm.reset(BookFactory.empty());
-        this.router.navigate(['../books'], { relativeTo: this.route });
-      });*/
+      this.vs.create(vaccination).subscribe((res) => {
+        this.vaccination = VaccinationFactory.empty();
+        this.vaccinationAdminForm.reset(VaccinationFactory.empty());
+        this.router.navigate(['../../../../admin', vaccination.location.id, 'vaccinations'], {
+          relativeTo: this.route,
+        });
+      });
     }
   }
 }

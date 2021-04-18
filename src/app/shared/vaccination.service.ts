@@ -33,6 +33,13 @@ export class VaccinationService {
       .pipe(catchError(this.errorHandler));
   }
 
+  create(book: Vaccination): Observable<any> {
+    return this.http
+      .post(this.api + '/vaccinations/', book)
+      .pipe(retry(3))
+      .pipe(catchError(this.errorHandler));
+  }
+
   private errorHandler(error: Error | any): Observable<any> {
     return throwError(error);
   }
