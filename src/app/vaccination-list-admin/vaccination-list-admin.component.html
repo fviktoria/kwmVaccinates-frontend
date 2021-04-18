@@ -10,7 +10,10 @@
     <div *ngFor="let vaccination of vaccinations" class="list-group-item list-group-item-action" aria-current="true">
       <div class="d-flex w-100 justify-content-between">
         <h5 class="mb-1">{{ vaccination.date }}</h5>
-        <a class="btn btn-primary btn-sm" [routerLink]="['../../../admin/vaccinations/edit', vaccination.id]">edit</a>
+        <div>
+          <a class="btn btn-primary btn-sm" [routerLink]="['../../../admin/vaccinations/edit', vaccination.id]">edit</a>
+          <a class="btn btn-danger btn-sm ms-2" (click)="removeVaccination(vaccination.id)">delete</a>
+        </div>
       </div>
       <p class="mb-1">{{ vaccination.from }} - {{ vaccination.to }}</p>
     </div>
