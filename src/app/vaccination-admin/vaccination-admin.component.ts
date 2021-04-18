@@ -19,6 +19,7 @@ export class VaccinationAdminComponent implements OnInit {
   vaccination = VaccinationFactory.empty();
   errors: { [key: string]: string } = {};
   isUpdatingVaccination = false;
+  locationId: string;
 
   constructor(
     public ls: LocationService,
@@ -41,11 +42,13 @@ export class VaccinationAdminComponent implements OnInit {
       });
     }
     this.initVaccination();
+
+    this.locationId = this.route.snapshot.params['locationId'];
   }
 
   initVaccination() {
     console.log(this.vaccination);
-    const locationId = this.route.snapshot.params['locationId'];
+
     this.vaccinationAdminForm = this.fb.group({
       id: this.vaccination.id,
       date: [this.vaccination.date, Validators.required],
@@ -53,7 +56,7 @@ export class VaccinationAdminComponent implements OnInit {
       to: [this.vaccination.to, Validators.required],
       maxPatients: [this.vaccination.maxPatients, Validators.required],
       location: this.vaccination.location,
-      location_id: this.vaccination.location ? this.vaccination.location.id : locationId,
+      location_id: this.vaccination.location ? this.vaccination.location.id : this.locationId,
     });
     this.vaccinationAdminForm.statusChanges.subscribe(() => this.updateErrorMessages());
   }

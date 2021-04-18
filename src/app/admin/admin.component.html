@@ -11,7 +11,9 @@
         <div *ngFor="let location of locations" class="list-group-item list-group-item-action" aria-current="true">
           <div class="d-flex w-100 justify-content-between">
             <h5 class="mb-1">{{ location.name }}</h5>
-            <a class="btn btn-primary btn-sm" [routerLink]="['../admin', location.id, 'vaccinations']">edit</a>
+            <a class="btn btn-primary btn-sm" [routerLink]="['../admin', location.id, 'vaccinations']"
+              ><i class="bi-calendar"></i> show dates</a
+            >
           </div>
           <p class="mb-1">{{ location.street }} {{ location.houseNo }}, {{ location.zipCode }} {{ location.city }}</p>
         </div>
