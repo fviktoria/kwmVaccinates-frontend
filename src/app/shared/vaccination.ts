@@ -8,5 +8,6 @@ export class Vaccination {
     public from: string,
     public to: string,
     public location: Location,
+    public location_id?: string,
   ) {}
 }

@@ -89,7 +89,7 @@ export class VaccinationAdminComponent implements OnInit {
       this.vs.create(vaccination).subscribe((res) => {
         this.vaccination = VaccinationFactory.empty();
         this.vaccinationAdminForm.reset(VaccinationFactory.empty());
-        this.router.navigate(['../../../../admin', vaccination.location.id, 'vaccinations'], {
+        this.router.navigate(['../../../../admin', vaccination.location_id, 'vaccinations'], {
           relativeTo: this.route,
         });
       });

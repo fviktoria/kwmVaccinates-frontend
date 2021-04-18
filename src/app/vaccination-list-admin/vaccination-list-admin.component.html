@@ -3,7 +3,10 @@
     Edit vaccination dates for<br />
     "{{ location && location.name }}"
   </h2>
-  <div class="list-group">
+  <a class="btn btn-primary btn-sm" [routerLink]="['../../../admin', location && location.id, 'vaccinations', 'create']"
+    >create new</a
+  >
+  <div class="list-group mt-3">
     <div *ngFor="let vaccination of vaccinations" class="list-group-item list-group-item-action" aria-current="true">
       <div class="d-flex w-100 justify-content-between">
         <h5 class="mb-1">{{ vaccination.date }}</h5>

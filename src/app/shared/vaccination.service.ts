@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { Vaccination } from './vaccination';
@@ -33,9 +33,16 @@ export class VaccinationService {
       .pipe(catchError(this.errorHandler));
   }
 
-  create(book: Vaccination): Observable<any> {
+  create(vaccination: Vaccination): Observable<any> {
     return this.http
-      .post(this.api + '/vaccinations/', book)
+      .post(this.api + '/vaccinations', vaccination)
+      .pipe(retry(3))
+      .pipe(catchError(this.errorHandler));
+  }
+
+  delete(id: string): Observable<any> {
+    return this.http
+      .delete(this.api + '/vaccinations/' + id)
       .pipe(retry(3))
       .pipe(catchError(this.errorHandler));
   }
