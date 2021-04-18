@@ -16,6 +16,7 @@ import { AdminComponent } from './admin/admin.component';
 import { VaccinationAdminComponent } from './vaccination-admin/vaccination-admin.component';
 import { LocationListAdminComponent } from './location-list-admin/location-list-admin.component';
 import { VaccinationListAdminComponent } from './vaccination-list-admin/vaccination-list-admin.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,7 @@ import { VaccinationListAdminComponent } from './vaccination-list-admin/vaccinat
     LocationListAdminComponent,
     VaccinationListAdminComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, ReactiveFormsModule],
   providers: [LocationService],
   bootstrap: [AppComponent],
 })
