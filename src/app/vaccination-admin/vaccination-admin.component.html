@@ -1,5 +1,5 @@
 <div class="container mt-5">
-  <form [formGroup]="vaccinationAdminForm">
+  <form [formGroup]="vaccinationAdminForm" (ngSubmit)="submitForm()">
     <div class="form-section">
       <h2 class="mb-3">Edit vaccination date</h2>
       <input type="hidden" name="id" />
@@ -30,7 +30,7 @@
         </div>
       </div>
 
-      <div class="row mb-5">
+      <!--<div class="row mb-5">
         <div class="col">
           <label for="location" class="form-label">Location</label>
           <select class="form-select" aria-label="Select location" id="location">
@@ -44,7 +44,7 @@
             </option>
           </select>
         </div>
-      </div>
+      </div>-->
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>

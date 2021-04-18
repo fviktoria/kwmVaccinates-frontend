@@ -26,6 +26,13 @@ export class VaccinationService {
       .pipe(catchError(this.errorHandler));
   }
 
+  update(vaccination: Vaccination): Observable<any> {
+    return this.http
+      .put(this.api + '/vaccinations/' + vaccination.id, vaccination)
+      .pipe(retry(3))
+      .pipe(catchError(this.errorHandler));
+  }
+
   private errorHandler(error: Error | any): Observable<any> {
     return throwError(error);
   }

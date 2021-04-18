@@ -5,6 +5,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { VaccinationFactory } from '../shared/vaccination-factory';
 import { ActivatedRoute, Router } from '@angular/router';
 import { VaccinationService } from '../shared/vaccination.service';
+import { VaccinationAdminErrorMessages } from './vaccination-admin-error-messages';
+import { Vaccination } from '../shared/vaccination';
 
 @Component({
   selector: 'app-vaccination-admin',
@@ -49,24 +51,45 @@ export class VaccinationAdminComponent implements OnInit {
       from: [this.vaccination.from, Validators.required],
       to: [this.vaccination.to, Validators.required],
       maxPatients: [this.vaccination.maxPatients, Validators.required],
-      location: [this.vaccination.location ? this.vaccination.location.id : null, Validators.required],
+      location: [this.vaccination.location ? this.vaccination.location : null, Validators.required],
     });
     this.vaccinationAdminForm.statusChanges.subscribe(() => this.updateErrorMessages());
   }
 
   updateErrorMessages() {
-    /*console.log("Is invalid? " + this.vaccinationAdminForm.invalid);
+    console.log('Is invalid? ' + this.vaccinationAdminForm.invalid);
     this.errors = {};
-    for (const message of BookFormErrorMessages) {
-    const control = this.bookForm.get(message.forControl);
-    if (
-    control &&
-    control.dirty &&
-    control.invalid &&
-    control.errors[message.forValidator] &&
-    !this.errors[message.forControl]
-    ) {
-    this.errors[message.forControl] = message.text;
-    }*/
+    for (const message of VaccinationAdminErrorMessages) {
+      const control = this.vaccinationAdminForm.get(message.forControl);
+      if (
+        control &&
+        control.dirty &&
+        control.invalid &&
+        control.errors[message.forValidator] &&
+        !this.errors[message.forControl]
+      ) {
+        this.errors[message.forControl] = message.text;
+      }
+    }
+  }
+
+  submitForm() {
+    const vaccination: Vaccination = VaccinationFactory.fromObject(this.vaccinationAdminForm.value);
+    console.log(vaccination);
+
+    if (this.isUpdatingVaccination) {
+      this.vs.update(vaccination).subscribe((res) => {
+        this.router.navigate(['../../../../admin', vaccination.location.id, 'vaccinations'], {
+          relativeTo: this.route,
+        });
+      });
+    } else {
+      /*
+      this.bs.create(book).subscribe((res) => {
+        this.book = BookFactory.empty();
+        this.bookForm.reset(BookFactory.empty());
+        this.router.navigate(['../books'], { relativeTo: this.route });
+      });*/
+    }
   }
 }
