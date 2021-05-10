@@ -8,7 +8,7 @@ import { catchError, retry } from 'rxjs/operators';
   providedIn: 'root',
 })
 export class VaccinationService {
-  private api = 'http://kwm-vaccinates.s1810456009.student.kwmhgb.at/api';
+  private api = 'https://kwm-vaccinates.s1810456009.student.kwmhgb.at/api';
 
   constructor(private http: HttpClient) {}
 

@@ -6,7 +6,7 @@ import { catchError, retry } from 'rxjs/operators';
 
 @Injectable()
 export class LocationService {
-  private api = 'http://kwm-vaccinates.s1810456009.student.kwmhgb.at/api';
+  private api = 'https://kwm-vaccinates.s1810456009.student.kwmhgb.at/api';
 
   constructor(private http: HttpClient) {}
 
