@@ -11,7 +11,7 @@ import { LocationListItemComponent } from './location-list-item/location-list-it
 import { LocationService } from './shared/location.service';
 import { HomeComponent } from './home/home.component';
 
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AdminComponent } from './admin/admin.component';
 import { VaccinationAdminComponent } from './vaccination-admin/vaccination-admin.component';
 import { LocationListAdminComponent } from './location-list-admin/location-list-admin.component';
@@ -19,6 +19,7 @@ import { VaccinationListAdminComponent } from './vaccination-list-admin/vaccinat
 import { ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { AuthenticationService } from './shared/authentication.service';
+import { TokenInterceptorService } from './shared/token-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,15 @@ import { AuthenticationService } from './shared/authentication.service';
     LoginComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, ReactiveFormsModule],
-  providers: [LocationService, AuthenticationService],
+  providers: [
+    LocationService,
+    AuthenticationService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptorService,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

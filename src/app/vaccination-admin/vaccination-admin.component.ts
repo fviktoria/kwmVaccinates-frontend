@@ -41,9 +41,10 @@ export class VaccinationAdminComponent implements OnInit {
         this.initVaccination();
       });
     }
-    this.initVaccination();
 
     this.locationId = this.route.snapshot.params['locationId'];
+
+    this.initVaccination();
   }
 
   initVaccination() {
