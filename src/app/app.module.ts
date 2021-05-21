@@ -18,6 +18,7 @@ import { LocationListAdminComponent } from './location-list-admin/location-list-
 import { VaccinationListAdminComponent } from './vaccination-list-admin/vaccination-list-admin.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
+import { AuthenticationService } from './shared/authentication.service';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,7 @@ import { LoginComponent } from './login/login.component';
     LoginComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, ReactiveFormsModule],
-  providers: [LocationService],
+  providers: [LocationService, AuthenticationService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
