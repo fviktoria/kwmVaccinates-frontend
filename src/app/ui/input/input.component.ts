@@ -10,7 +10,7 @@ export class InputComponent implements OnInit {
 
   @Input() name: string;
   @Input() id: string;
-  @Input() type: 'text' | 'email' | 'phone' | 'date' | 'time';
+  @Input() type: 'text' | 'email' | 'phone' | 'date' | 'time' | 'password';
 
   ngOnInit(): void {}
 }

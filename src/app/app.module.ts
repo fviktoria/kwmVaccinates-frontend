@@ -17,6 +17,7 @@ import { VaccinationAdminComponent } from './vaccination-admin/vaccination-admin
 import { LocationListAdminComponent } from './location-list-admin/location-list-admin.component';
 import { VaccinationListAdminComponent } from './vaccination-list-admin/vaccination-list-admin.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     VaccinationAdminComponent,
     LocationListAdminComponent,
     VaccinationListAdminComponent,
+    LoginComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, ReactiveFormsModule],
   providers: [LocationService],
