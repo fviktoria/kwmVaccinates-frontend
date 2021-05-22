@@ -6,6 +6,7 @@ import { LocationListAdminComponent } from './location-list-admin/location-list-
 import { LocationListComponent } from './location-list/location-list.component';
 import { LoginComponent } from './login/login.component';
 import { SignupFormComponent } from './signup-form/signup-form.component';
+import { UserAppointmentConfirmationComponent } from './user-appointment-confirmation/user-appointment-confirmation.component';
 import { VaccinationAdminComponent } from './vaccination-admin/vaccination-admin.component';
 import { VaccinationListAdminComponent } from './vaccination-list-admin/vaccination-list-admin.component';
 
@@ -20,6 +21,7 @@ const routes: Routes = [
   { path: 'admin/vaccinations/edit/:vaccinationId', component: VaccinationAdminComponent },
   { path: 'admin/:locationId/vaccinations/create', component: VaccinationAdminComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'confirmation', component: UserAppointmentConfirmationComponent },
 ];
 
 @NgModule({

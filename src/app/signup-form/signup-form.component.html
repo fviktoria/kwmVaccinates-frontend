@@ -1,78 +1,23 @@
-<form>
-  <div class="form-section">
-    <h2 class="mb-3">Appointment</h2>
+<div class="container mt-5">
+  <form [formGroup]="signupForm">
+    <h2 class="mb-3">Appointments for {{ location && location.name }}</h2>
     <div class="mb-3">
       <div class="row">
-        <div class="col">
-          <label for="exampleInputEmail1" class="form-label">Location</label><br />
-          <input type="text" value="{{ location.name }}" class="form-control" disabled />
-        </div>
-
-        <div class="col">
-          <label for="exampleInputEmail1" class="form-label">Appointment</label>
-          <select class="form-select" aria-label="Default select example">
-            <option selected>Select appointment</option>
-            <option *ngFor="let vaccination of vaccinations" [value]="vaccination.id">
-              {{ vaccination.date }}, {{ vaccination.from }} - {{ vaccination.to }}
-            </option>
-          </select>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="form-section">
-    <h2 class="mb-3">Personal Data</h2>
-
-    <div class="row">
-      <div class="col">
-        <app-input type="text" id="firstName" name="First Name"></app-input>
-      </div>
-      <div class="col">
-        <app-input type="text" id="lastName" name="Last Name"></app-input>
+        <ng-container *ngFor="let vaccination of vaccinations">
+          <label *ngIf="vaccination.users_count < vaccination.maxPatients" [for]="vaccination.id">
+            <input
+              type="radio"
+              name="appointment"
+              formControlName="appointment"
+              [value]="vaccination.id"
+              [id]="vaccination.id"
+            />
+            {{ vaccination.date }}, {{ vaccination.from }} - {{ vaccination.to }}
+          </label>
+        </ng-container>
       </div>
     </div>
 
-    <div class="row">
-      <div class="col">
-        <app-input type="email" id="email" name="E-Mail address"></app-input>
-      </div>
-
-      <div class="col">
-        <app-input type="phone" id="phone" name="Phone"></app-input>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-9">
-        <app-input type="text" id="street" name="Street"></app-input>
-      </div>
-
-      <div class="col-3">
-        <app-input type="text" id="houseNo" name="House no."></app-input>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-4">
-        <app-input type="text" id="zipCode" name="ZIP Code"></app-input>
-      </div>
-
-      <div class="col-8">
-        <app-input type="text" id="city" name="City"></app-input>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col">
-        <app-input type="date" id="birthdate" name="Date of birth"></app-input>
-      </div>
-
-      <div class="col">
-        <app-input type="text" id="ssno" name="Social security number"></app-input>
-      </div>
-    </div>
-  </div>
-
-  <button type="submit" class="btn btn-primary">Submit</button>
-</form>
+    <button type="submit" class="btn btn-primary" (click)="submitSignupForm()">Submit</button>
+  </form>
+</div>

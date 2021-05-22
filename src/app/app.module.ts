@@ -20,6 +20,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { AuthenticationService } from './shared/authentication.service';
 import { TokenInterceptorService } from './shared/token-interceptor.service';
+import { UserAppointmentConfirmationComponent } from './user-appointment-confirmation/user-appointment-confirmation.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { TokenInterceptorService } from './shared/token-interceptor.service';
     LocationListAdminComponent,
     VaccinationListAdminComponent,
     LoginComponent,
+    UserAppointmentConfirmationComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, ReactiveFormsModule],
   providers: [
