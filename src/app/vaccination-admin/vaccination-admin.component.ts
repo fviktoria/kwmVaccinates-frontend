@@ -32,6 +32,7 @@ export class VaccinationAdminComponent implements OnInit {
   ngOnInit(): void {
     this.ls.getAll().subscribe((res) => (this.locations = res));
 
+    this.locationId = this.route.snapshot.params['locationId'];
     const vaccinationId = this.route.snapshot.params['vaccinationId'];
 
     if (vaccinationId) {
@@ -42,14 +43,10 @@ export class VaccinationAdminComponent implements OnInit {
       });
     }
 
-    this.locationId = this.route.snapshot.params['locationId'];
-
     this.initVaccination();
   }
 
   initVaccination() {
-    console.log(this.vaccination);
-
     this.vaccinationAdminForm = this.fb.group({
       id: this.vaccination.id,
       date: [this.vaccination.date, Validators.required],
