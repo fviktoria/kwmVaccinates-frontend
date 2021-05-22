@@ -27,7 +27,6 @@ export class LoginComponent implements OnInit {
     const val = this.loginForm.value;
     if (val.email && val.password) {
       this.authService.login(val.email, val.password).subscribe((res) => {
-        console.log(res);
         this.authService.setLocalStorage((res as Response).access_token);
         this.router.navigateByUrl('/');
       });

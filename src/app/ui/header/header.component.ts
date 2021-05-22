@@ -15,11 +15,19 @@ export class HeaderComponent implements OnInit {
     return this.authService.isLoggedIn();
   }
 
+  isAdmin() {
+    return this.authService.isAdmin();
+  }
+
   getLoginLabel() {
     if (this.isLoggedIn()) {
       return 'Logout';
     } else {
       return 'Login';
     }
+  }
+
+  logout() {
+    return this.authService.logout();
   }
 }
