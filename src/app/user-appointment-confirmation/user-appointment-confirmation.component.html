@@ -8,16 +8,16 @@
   </div>
 
   <div class="container pt-5 pb-5">
-    <div class="row">
-      <div class="col-md-6">
+    <div class="row justify-content-center">
+      <div class="col-lg-3 col-md-6">
         <h2>Your appointment</h2>
       </div>
-      <div class="col-md-6">
+      <div class="col-lg-3 col-md-6">
         {{ user.vaccination.date }}<br />
         {{ user.vaccination.from }} - {{ user.vaccination.to }}<br />
         {{ user.vaccination.location.name }}
-
-        <button class="btn btn-danger" (click)="cancelAppointment(user.id)">
+        <br />
+        <button class="btn btn-danger mt-3" (click)="cancelAppointment(user.id)">
           <i class="bi-x"></i> Cancel appointment
         </button>
       </div>

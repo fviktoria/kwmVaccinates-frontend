@@ -18,6 +18,7 @@ export class SignupFormComponent implements OnInit {
   vaccinations: Vaccination[];
   location: Location;
   signupForm: FormGroup;
+  user: User;
 
   constructor(
     private vs: VaccinationService,
@@ -39,6 +40,8 @@ export class SignupFormComponent implements OnInit {
     this.signupForm = this.fb.group({
       appointment: ['', Validators.required],
     });
+
+    this.userService.getSingle(localStorage.getItem('userId')).subscribe((res) => (this.user = res));
   }
 
   submitSignupForm() {

@@ -13,7 +13,13 @@
 <div class="container mt-5 mb-5">
   <div class="row justify-content-center">
     <div class="col-lg-6">
-      <form *ngIf="isLoggedIn()" [formGroup]="signupForm">
+      <div *ngIf="isLoggedIn() && user && user.vaccination_id" class="text-center">
+        You already have an appointment.<br />
+        <a routerLink="../../confirmation" type="submit" class="btn btn-primary mt-3" (click)="submitSignupForm()"
+          >Show appointment</a
+        >
+      </div>
+      <form *ngIf="isLoggedIn() && user && !user.vaccination_id" [formGroup]="signupForm">
         <h2 *ngIf="isLoggedIn()" class="mb-3">Choose appointment</h2>
         <div class="mt-5 mb-5">
           <div class="row">
