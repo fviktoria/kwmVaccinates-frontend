@@ -7,6 +7,7 @@ import { LocationService } from '../shared/location.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserService } from '../shared/user.service';
 import { User } from '../shared/user';
+import { AuthenticationService } from '../shared/authentication.service';
 
 @Component({
   selector: 'app-signup-form',
@@ -25,6 +26,7 @@ export class SignupFormComponent implements OnInit {
     private fb: FormBuilder,
     private userService: UserService,
     private router: Router,
+    private authService: AuthenticationService,
   ) {}
 
   ngOnInit(): void {
@@ -47,5 +49,9 @@ export class SignupFormComponent implements OnInit {
         this.router.navigate(['confirmation']);
       });
     }
+  }
+
+  isLoggedIn() {
+    return this.authService.isLoggedIn();
   }
 }

@@ -3,14 +3,7 @@
     <div class="col-md-8">
       <h1>COVID-19 vaccination</h1>
       <p>Sign up on this platform to get your vaccination.</p>
-      <a
-        *ngIf="isLoggedIn() && !isAdmin()"
-        routerLink="locations"
-        routerLinkActive="active"
-        class="btn btn-primary text-white"
-        >Book appointment</a
-      >
-      <a *ngIf="!isLoggedIn()" routerLink="login" routerLinkActive="active" class="btn btn-primary text-white">Login</a>
+      <a routerLink="../locations" routerLinkActive="active" class="btn btn-primary text-white">Show appointments</a>
     </div>
   </div>
 </div>

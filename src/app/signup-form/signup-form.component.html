@@ -13,8 +13,8 @@
 <div class="container mt-5 mb-5">
   <div class="row justify-content-center">
     <div class="col-lg-6">
-      <form [formGroup]="signupForm">
-        <h2 class="mb-3">Choose appointment</h2>
+      <form *ngIf="isLoggedIn()" [formGroup]="signupForm">
+        <h2 *ngIf="isLoggedIn()" class="mb-3">Choose appointment</h2>
         <div class="mt-5 mb-5">
           <div class="row">
             <ng-container *ngFor="let vaccination of vaccinations">
@@ -35,9 +35,25 @@
         </div>
 
         <div class="text-center mt-4 mb-5">
-          <button type="submit" class="btn btn-primary" (click)="submitSignupForm()">Book appointment</button>
+          <button *ngIf="isLoggedIn()" type="submit" class="btn btn-primary" (click)="submitSignupForm()">
+            Book appointment
+          </button>
         </div>
       </form>
+
+      <div *ngIf="!isLoggedIn()">
+        <ng-container *ngFor="let vaccination of vaccinations">
+          <div *ngIf="vaccination.users_count < vaccination.maxPatients" class="appointment">
+            <span>{{ vaccination.date }}, {{ vaccination.from }} - {{ vaccination.to }}</span>
+          </div>
+        </ng-container>
+
+        <div class="text-center mt-4 mb-5">
+          <a routerLink="../../login" type="submit" class="btn btn-primary" (click)="submitSignupForm()"
+            >Login to book appointment</a
+          >
+        </div>
+      </div>
     </div>
   </div>
 </div>
