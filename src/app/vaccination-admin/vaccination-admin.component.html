@@ -1,4 +1,4 @@
-<div class="container mt-5">
+<div class="container mt-5 mb-5">
   <form [formGroup]="vaccinationAdminForm" (ngSubmit)="submitForm()">
     <div class="form-section">
       <h2 class="mb-3">Edit vaccination date</h2>
@@ -50,7 +50,9 @@
     <button type="submit" class="btn btn-primary" [disabled]="vaccinationAdminForm.invalid">
       <i class="bi-check"></i> Submit
     </button>
-    <a [routerLink]="['../../../../admin', locationId, 'vaccinations']" class="ms-2 btn btn-secondary"
+    <a
+      [routerLink]="['../../../../admin', locationId || vaccination.location_id, 'vaccinations']"
+      class="ms-2 btn btn-secondary"
       ><i class="bi-x"></i> cancel</a
     >
   </form>

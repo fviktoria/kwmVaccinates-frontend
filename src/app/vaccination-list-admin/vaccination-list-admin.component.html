@@ -1,4 +1,4 @@
-<div class="container mt-5">
+<div class="container mt-5 mb-5">
   <a class="btn btn-primary btn-sm mb-3" routerLink="../../../admin/"><i class="bi-arrow-left"></i> back to overview</a>
   <h2 class="mb-3">
     Edit vaccination dates for<br />
@@ -14,9 +14,15 @@
   <div class="list-group mt-3">
     <div *ngFor="let vaccination of vaccinations" class="list-group-item list-group-item-action" aria-current="true">
       <div class="d-flex w-100 justify-content-between">
-        <h5 class="mb-1">{{ vaccination.date }}</h5>
+        <h5 class="mb-1"><i class="bi-calendar"></i> {{ vaccination.date }}</h5>
         <div>
-          <a class="btn btn-primary btn-sm" [routerLink]="['../../../admin/vaccinations/edit', vaccination.id]"
+          <a
+            *ngIf="vaccination.users_count > 0"
+            class="btn btn-primary btn-sm"
+            [routerLink]="['../../../admin/vaccination', vaccination.id, 'users']"
+            ><i class="bi-person"></i> show participants</a
+          >
+          <a class="btn btn-primary btn-sm ms-2" [routerLink]="['../../../admin/vaccinations/edit', vaccination.id]"
             ><i class="bi-pen"></i> edit</a
           >
           <a class="btn btn-danger btn-sm ms-2" (click)="removeVaccination(vaccination.id)"
@@ -24,7 +30,8 @@
           >
         </div>
       </div>
-      <p class="mb-1">{{ vaccination.from }} - {{ vaccination.to }}</p>
+      <p class="mb-1"><i class="bi-clock"></i> {{ vaccination.from }} - {{ vaccination.to }}</p>
+      <p><i class="bi-person"></i> {{ vaccination.users_count }}/{{ vaccination.maxPatients }}</p>
     </div>
   </div>
 </div>

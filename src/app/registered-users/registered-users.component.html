@@ -1,0 +1,40 @@
+<div class="container mt-5 mb-5">
+  <div class="mb-3">
+    <a
+      class="btn btn-primary btn-sm mb-3"
+      [routerLink]="['../../../../admin', vaccination && vaccination.location_id, 'vaccinations']"
+      ><i class="bi-arrow-left"></i> back to overview</a
+    >
+  </div>
+  <table class="table table-striped table-hover">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">First name</th>
+        <th scope="col">Last name</th>
+        <th scope="col">Contact</th>
+        <th scope="col">Vaccination status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of signedUpUsers">
+        <td>{{ user.id }}</td>
+        <td>{{ user.firstName }}</td>
+        <td>{{ user.lastName }}</td>
+        <td>
+          {{ user.street }} {{ user.houseNo }}, {{ user.zipCode }} {{ user.city }}<br />
+          {{ user.email }}<br />
+          {{ user.phone }}
+        </td>
+        <td>
+          <input
+            type="checkbox"
+            [checked]="user.isVaccinated"
+            id="vaccinationStatus"
+            (change)="setVaccinationStatus(user.id, !user.isVaccinated)"
+          />
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

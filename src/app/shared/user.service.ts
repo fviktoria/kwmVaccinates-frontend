@@ -23,6 +23,17 @@ export class UserService {
       .pipe(catchError(this.errorHandler));
   }
 
+  getByAppointment(vaccinationId): Observable<Array<User>> {
+    return this.http.get(`${this.api}/signedup/${vaccinationId}`).pipe(retry(3)).pipe(catchError(this.errorHandler));
+  }
+
+  setVaccinationStatus(userId: number, isVaccinated: boolean): Observable<User> {
+    return this.http
+      .put(this.api + '/setVaccinationStatus/' + userId, { isVaccinated })
+      .pipe(retry(3))
+      .pipe(catchError(this.errorHandler));
+  }
+
   private errorHandler(error: Error | any): Observable<any> {
     return throwError(error);
   }
