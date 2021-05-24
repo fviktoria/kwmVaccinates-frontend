@@ -1,6 +1,19 @@
-.form-section {
-  background-color: #f0f0f0;
-  margin-bottom: 3em;
-  border-radius: 1em;
-  padding: 2em 2em 1em 2em;
+.appointment label {
+  display: block;
+  margin: 0.5em 0;
+}
+
+.appointment input {
+  display: none;
+}
+
+.appointment label {
+  padding: 1em;
+  border-radius: 5px;
+  border: 2px solid #fff;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+}
+
+.appointment input:checked + label {
+  border: 2px solid #0d6efd;
 }

@@ -1,59 +1,74 @@
-<div *ngIf="!isLoggedIn()" class="container mt-3">
-  <form [formGroup]="loginForm" (ngSubmit)="login()">
-    <div class="row">
-      <div class="col">
-        <div>
-          <div class="form-floating mb-3">
-            <input type="email" class="form-control" id="email" placeholder="jane@doe.com" formControlName="email" />
-            <label for="email">E-Mail</label>
-          </div>
-          <div
-            *ngIf="
-              loginForm.get('email').invalid &&
-              (loginForm.get('email').dirty || loginForm.get('email').touched) &&
-              loginForm.get('email').hasError('required')
-            "
-            class="ui negative message"
-          >
-            Please enter your e-mail address.
-          </div>
-          <div
-            *ngIf="
-              loginForm.get('email').invalid &&
-              (loginForm.get('email').dirty || loginForm.get('email').touched) &&
-              loginForm.get('email').hasError('email')
-            "
-            class="ui negative message"
-          >
-            Incorrect e-mail format.
-          </div>
-        </div>
-
-        <div>
-          <div class="form-floating mb-3">
-            <input
-              type="password"
-              class="form-control"
-              id="password"
-              placeholder="********"
-              formControlName="password"
-            />
-            <label for="password">Password</label>
-          </div>
-          <div
-            *ngIf="
-              loginForm.get('password').invalid &&
-              (loginForm.get('password').dirty || loginForm.get('password').touched)
-            "
-            class="ui negative message"
-          >
-            Please enter your password.
-          </div>
-        </div>
-      </div>
+<div *ngIf="!isLoggedIn()" class="container mt-5 mb-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6 mt-3 mb-3 text-center">
+      <h2>Login</h2>
     </div>
-    <button type="submit" class="btn btn-primary" [disabled]="loginForm.invalid">Login</button>
-  </form>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <form [formGroup]="loginForm" (ngSubmit)="login()">
+        <div class="row">
+          <div class="col">
+            <div>
+              <div class="form-floating mb-3">
+                <input
+                  type="email"
+                  class="form-control"
+                  id="email"
+                  placeholder="jane@doe.com"
+                  formControlName="email"
+                />
+                <label for="email">E-Mail</label>
+              </div>
+              <div
+                *ngIf="
+                  loginForm.get('email').invalid &&
+                  (loginForm.get('email').dirty || loginForm.get('email').touched) &&
+                  loginForm.get('email').hasError('required')
+                "
+                class="ui negative message"
+              >
+                Please enter your e-mail address.
+              </div>
+              <div
+                *ngIf="
+                  loginForm.get('email').invalid &&
+                  (loginForm.get('email').dirty || loginForm.get('email').touched) &&
+                  loginForm.get('email').hasError('email')
+                "
+                class="ui negative message"
+              >
+                Incorrect e-mail format.
+              </div>
+            </div>
+
+            <div>
+              <div class="form-floating mb-3">
+                <input
+                  type="password"
+                  class="form-control"
+                  id="password"
+                  placeholder="********"
+                  formControlName="password"
+                />
+                <label for="password">Password</label>
+              </div>
+              <div
+                *ngIf="
+                  loginForm.get('password').invalid &&
+                  (loginForm.get('password').dirty || loginForm.get('password').touched)
+                "
+                class="ui negative message"
+              >
+                Please enter your password.
+              </div>
+            </div>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary" [disabled]="loginForm.invalid">Login</button>
+      </form>
+    </div>
+  </div>
 </div>
 
 <div *ngIf="isLoggedIn()" class="container text-center mt-5">

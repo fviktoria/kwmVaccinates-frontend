@@ -1,0 +1,8 @@
+.image-banner {
+  height: 50vh;
+  min-height: 200px;
+  background-image: url('../../assets/pexels-gustavo-fring-3985170.jpeg');
+  background-position: top;
+  background-size: cover;
+  background-attachment: fixed;
+}

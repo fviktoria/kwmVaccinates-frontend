@@ -1,23 +1,43 @@
-<div class="container mt-5">
-  <form [formGroup]="signupForm">
-    <h2 class="mb-3">Appointments for {{ location && location.name }}</h2>
-    <div class="mb-3">
-      <div class="row">
-        <ng-container *ngFor="let vaccination of vaccinations">
-          <label *ngIf="vaccination.users_count < vaccination.maxPatients" [for]="vaccination.id">
-            <input
-              type="radio"
-              name="appointment"
-              formControlName="appointment"
-              [value]="vaccination.id"
-              [id]="vaccination.id"
-            />
-            {{ vaccination.date }}, {{ vaccination.from }} - {{ vaccination.to }}
-          </label>
-        </ng-container>
+<div class="container-fluid">
+  <div class="row justify-content-center bg-dark pt-5 pb-5 text-light text-center">
+    <div class="col-md-8">
+      <h1>Available appointments for <br />{{ location && location.name }}</h1>
+      <div class="mt-5">
+        <a class="btn btn-primary btn-sm mb-3" routerLink="../../locations"
+          ><i class="bi-arrow-left"></i> back to overview</a
+        >
       </div>
     </div>
+  </div>
+</div>
+<div class="container mt-5 mb-5">
+  <div class="row justify-content-center">
+    <div class="col-lg-6">
+      <form [formGroup]="signupForm">
+        <h2 class="mb-3">Choose appointment</h2>
+        <div class="mt-5 mb-5">
+          <div class="row">
+            <ng-container *ngFor="let vaccination of vaccinations">
+              <div *ngIf="vaccination.users_count < vaccination.maxPatients" class="appointment">
+                <input
+                  type="radio"
+                  name="appointment"
+                  formControlName="appointment"
+                  [value]="vaccination.id"
+                  [id]="vaccination.id"
+                />
+                <label [for]="vaccination.id">
+                  {{ vaccination.date }}, {{ vaccination.from }} - {{ vaccination.to }}
+                </label>
+              </div>
+            </ng-container>
+          </div>
+        </div>
 
-    <button type="submit" class="btn btn-primary" (click)="submitSignupForm()">Submit</button>
-  </form>
+        <div class="text-center mt-4 mb-5">
+          <button type="submit" class="btn btn-primary" (click)="submitSignupForm()">Book appointment</button>
+        </div>
+      </form>
+    </div>
+  </div>
 </div>

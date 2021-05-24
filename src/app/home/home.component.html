@@ -1,0 +1,33 @@
+<div class="container-fluid">
+  <div class="row justify-content-center bg-dark pt-5 pb-5 text-light text-center">
+    <div class="col-md-8">
+      <h1>COVID-19 vaccination</h1>
+      <p>Sign up on this platform to get your vaccination.</p>
+      <a
+        *ngIf="isLoggedIn() && !isAdmin()"
+        routerLink="locations"
+        routerLinkActive="active"
+        class="btn btn-primary text-white"
+        >Book appointment</a
+      >
+      <a *ngIf="!isLoggedIn()" routerLink="login" routerLinkActive="active" class="btn btn-primary text-white">Login</a>
+    </div>
+  </div>
+</div>
+<div class="bg-light">
+  <div class="container">
+    <div class="row pt-5 pb-5 align-items-center">
+      <div class="col-md-10">
+        <h2>Which vaccine will I receive?</h2>
+        <p>
+          The brand of the vaccine depends on the availability, but we are only vaccinating mRNA vaccines from
+          Biontech/Pfizer or Moderna.
+        </p>
+      </div>
+      <div class="col-md-2 text-center">
+        <img src="../../assets/syringe.png" class="img-fluid" />
+      </div>
+    </div>
+  </div>
+</div>
+<div class="image-banner"></div>

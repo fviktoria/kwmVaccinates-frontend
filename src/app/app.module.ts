@@ -21,6 +21,7 @@ import { LoginComponent } from './login/login.component';
 import { AuthenticationService } from './shared/authentication.service';
 import { TokenInterceptorService } from './shared/token-interceptor.service';
 import { UserAppointmentConfirmationComponent } from './user-appointment-confirmation/user-appointment-confirmation.component';
+import { FooterComponent } from './ui/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { UserAppointmentConfirmationComponent } from './user-appointment-confirm
     VaccinationListAdminComponent,
     LoginComponent,
     UserAppointmentConfirmationComponent,
+    FooterComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, ReactiveFormsModule],
   providers: [
