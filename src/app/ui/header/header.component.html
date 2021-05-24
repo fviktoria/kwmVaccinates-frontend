@@ -15,6 +15,10 @@
           </li>
 
           <li class="nav-item" *ngIf="isLoggedIn() && !isAdmin()">
+            <a routerLink="confirmation" routerLinkActive="active" class="nav-link">My Appointment</a>
+          </li>
+
+          <li class="nav-item" *ngIf="isLoggedIn() && !isAdmin()">
             <a routerLink="locations" routerLinkActive="active" class="nav-link btn btn-primary text-white ms-2"
               >Book appointment</a
             >

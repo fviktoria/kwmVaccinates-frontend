@@ -1,4 +1,4 @@
-<div *ngIf="user">
+<div *ngIf="user && user.vaccination_id">
   <div class="container-fluid">
     <div class="row justify-content-center bg-dark pt-5 pb-5 text-light text-center">
       <div class="col-md-8 pt-5 pb-5">
@@ -16,6 +16,21 @@
         {{ user.vaccination.date }}<br />
         {{ user.vaccination.from }} - {{ user.vaccination.to }}<br />
         {{ user.vaccination.location.name }}
+
+        <button class="btn btn-danger" (click)="cancelAppointment(user.id)">
+          <i class="bi-x"></i> Cancel appointment
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="user && !user.vaccination_id">
+  <div class="container-fluid">
+    <div class="row justify-content-center bg-dark pt-5 pb-5 text-light text-center">
+      <div class="col-md-8 pt-5 pb-5">
+        <h1>You don't have an appointment yet.</h1>
+        <a routerLink="../locations" routerLinkActive="active" class="btn btn-primary text-white">Book appointment</a>
       </div>
     </div>
   </div>

@@ -34,6 +34,13 @@ export class UserService {
       .pipe(catchError(this.errorHandler));
   }
 
+  cancelAppointment(userId: number): Observable<User> {
+    return this.http
+      .put(this.api + '/' + userId + '/cancelAppointment', {})
+      .pipe(retry(3))
+      .pipe(catchError(this.errorHandler));
+  }
+
   private errorHandler(error: Error | any): Observable<any> {
     return throwError(error);
   }

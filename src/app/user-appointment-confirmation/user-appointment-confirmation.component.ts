@@ -17,4 +17,10 @@ export class UserAppointmentConfirmationComponent implements OnInit {
 
     if (userId) this.userService.getSingle(userId).subscribe((res) => (this.user = res));
   }
+
+  cancelAppointment(userId: number) {
+    this.userService.cancelAppointment(userId).subscribe((res) => {
+      window.location.reload();
+    });
+  }
 }
